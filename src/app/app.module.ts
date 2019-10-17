@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { BookListComponent } from './book-list/book-list.component';
+import { SingleBookComponent } from './book-list/single-book/single-book.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
     SigninComponent,
-    BookListComponent
+    BookListComponent,
+    SingleBookComponent
   ],
   imports: [
     BrowserModule
