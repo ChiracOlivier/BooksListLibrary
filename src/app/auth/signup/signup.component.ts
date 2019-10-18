@@ -58,5 +58,8 @@ export class SignupComponent implements OnInit {
     );
   }
 
- 
+  onSubm() {
+
+    this.router.navigate(['']);
+  }
 }
