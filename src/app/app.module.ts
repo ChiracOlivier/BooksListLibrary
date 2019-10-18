@@ -20,10 +20,12 @@ import { HomeComponent } from './home/home.component';
 const appRoutes: Routes = [
   {path: 'auth/signup' , component: SignupComponent},
   {path: 'auth/signin' , component: SigninComponent},
-  {path: 'books' , component: BookListComponent},
-  {path: 'books/new' , component: BookFormComponent},
-  {path: 'books/view/id' , component: SingleBookComponent},
-  {path: '' , component: HomeComponent}
+  {path: 'books' , canActivate: [AuthGuardService], component: BookListComponent},
+  {path: 'books/new' , canActivate: [AuthGuardService], component: BookFormComponent},
+  {path: 'books/view/id' , canActivate: [AuthGuardService], component: SingleBookComponent},
+  {path: 'home', component: HomeComponent},
+  {path: '' , redirectTo: 'home', pathMatch: 'full'},
+  {path: '**', redirectTo: 'home'}
 ];
 @NgModule({
   declarations: [

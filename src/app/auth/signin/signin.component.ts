@@ -44,17 +44,7 @@ export class SigninComponent implements OnInit {
   }
 
   onSubm() {
-    /*const email = this.signInForm.get('email').value;
-    const password = this.signInForm.get('password').value;
-    this.authService.signInUser(email, password).then(
-      () => {
-        this.router.navigate(['books']);
-      },
-      (error) => {
-        this.errorMessage = error;
-      }
-    );
-  */
+
     this.router.navigate(['']);
   }
 
