@@ -23,7 +23,7 @@ const appRoutes: Routes = [
   {path: 'books' , component: BookListComponent},
   {path: 'books/new' , component: BookFormComponent},
   {path: 'books/view/id' , component: SingleBookComponent},
-  {path: '/' , component: BookListComponent}
+  {path: '' , component: HomeComponent}
 ];
 @NgModule({
   declarations: [

@@ -26,8 +26,6 @@ export class SigninComponent implements OnInit {
   InitForm() {
 
     this.signInForm = this.formBuilder.group({
-      prenom: ['', [Validators.required]],
-      nom: ['', [Validators.required]],
       email : ['', [Validators.required, Validators.email]],
       password: ['', [ Validators.required, Validators.pattern(/[0-9a-zA-Z]{6,}/)]],
     });
@@ -35,7 +33,7 @@ export class SigninComponent implements OnInit {
   onSubmit() {
     const email = this.signInForm.get('email').value;
     const password = this.signInForm.get('password').value;
-    this.authService.createNewUser(email, password).then(
+    this.authService.signInUser(email, password).then(
       () => {
         this.router.navigate(['books']);
       },
@@ -46,9 +44,9 @@ export class SigninComponent implements OnInit {
   }
 
   onSubm() {
-    const email = this.signInForm.get('email').value;
+    /*const email = this.signInForm.get('email').value;
     const password = this.signInForm.get('password').value;
-    this.authService.createNewUser(email, password).then(
+    this.authService.signInUser(email, password).then(
       () => {
         this.router.navigate(['books']);
       },
@@ -56,6 +54,8 @@ export class SigninComponent implements OnInit {
         this.errorMessage = error;
       }
     );
+  */
+    this.router.navigate(['']);
   }
 
 }

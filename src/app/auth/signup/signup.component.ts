@@ -59,7 +59,7 @@ export class SignupComponent implements OnInit {
   }
 
   onSubm() {
-    const email = this.signUpForm.get('email').value;
+   /* const email = this.signUpForm.get('email').value;
     const password = this.signUpForm.get('password').value;
     this.authService.createNewUser(email, password).then(
       () => {
@@ -68,6 +68,7 @@ export class SignupComponent implements OnInit {
       (error) => {
         this.errorMessage = error;
       }
-    );
+    );*/
+    this.router.navigate(['']);
   }
 }
