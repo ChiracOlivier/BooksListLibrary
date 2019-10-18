@@ -1,1 +1,40 @@
-<p>signup works!</p>
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <h2>Create an account</h2>
+    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="prenom">Firstname</label>
+        <input type="text" id="prenom" class="form-control" formControlName="prenom">
+      </div>
+      <div class="form-group">
+        <label for="nom">Lastname</label>
+        <input type="text" id="nom" class="form-control" formControlName="nom">
+      </div>
+      <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" id="email" class="form-control" formControlName="email">
+    </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" class="form-control" formControlName="password">
+      </div>
+      <div class="form-group">
+        <label for="password2">Confirm your password</label>
+        <input type="password" id="password2" class="form-control" formControlName="password2">
+      </div>
+      <div class="form-group">
+        <label for="profession">Profession  </label>
+        <select id="profession">
+          <option>Student</option>
+          <option>Teacher</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <span>
+      <button class="btn btn-primary" type="submit" [disabled]="signUpForm.invalid">Submit</button>
+      <button class="btn btn-danger" type="button"  (click)="onSubm()">Cancel</button>
+      </span>
+    </form>
+    <p class="text-danger">{{errorMessage}}</p>
+  </div>
+</div>
