@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators} from '@angular/forms';
+import {AuthService} from '../../services/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -7,9 +10,52 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SigninComponent implements OnInit {
 
-  constructor() { }
+  signInForm: FormGroup;
+  errorMessage: string;
+
+  constructor(private formBuilder: FormBuilder,
+              private authService: AuthService,
+              private router: Router) {}
+
+
 
   ngOnInit() {
+    this.InitForm();
+  }
+
+  InitForm() {
+
+    this.signInForm = this.formBuilder.group({
+      prenom: ['', [Validators.required]],
+      nom: ['', [Validators.required]],
+      email : ['', [Validators.required, Validators.email]],
+      password: ['', [ Validators.required, Validators.pattern(/[0-9a-zA-Z]{6,}/)]],
+    });
+  }
+  onSubmit() {
+    const email = this.signInForm.get('email').value;
+    const password = this.signInForm.get('password').value;
+    this.authService.createNewUser(email, password).then(
+      () => {
+        this.router.navigate(['books']);
+      },
+      (error) => {
+        this.errorMessage = error;
+      }
+    );
+  }
+
+  onSubm() {
+    const email = this.signInForm.get('email').value;
+    const password = this.signInForm.get('password').value;
+    this.authService.createNewUser(email, password).then(
+      () => {
+        this.router.navigate(['books']);
+      },
+      (error) => {
+        this.errorMessage = error;
+      }
+    );
   }
 
 }

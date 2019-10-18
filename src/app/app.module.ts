@@ -14,6 +14,7 @@ import {BooksService} from './services/books.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { RouterModule, Routes} from '@angular/router';
+import { HomeComponent } from './home/home.component';
 
 
 const appRoutes: Routes = [
@@ -21,7 +22,8 @@ const appRoutes: Routes = [
   {path: 'auth/signin' , component: SigninComponent},
   {path: 'books' , component: BookListComponent},
   {path: 'books/new' , component: BookFormComponent},
-  {path: 'books/view/id' , component: SingleBookComponent}
+  {path: 'books/view/id' , component: SingleBookComponent},
+  {path: '/' , component: BookListComponent}
 ];
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ const appRoutes: Routes = [
     BookListComponent,
     SingleBookComponent,
     BookFormComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     FormsModule,
