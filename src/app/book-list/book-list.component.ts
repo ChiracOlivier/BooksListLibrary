@@ -40,5 +40,4 @@ export class BookListComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.booksSubscription.unsubscribe();
   }
-
 }
